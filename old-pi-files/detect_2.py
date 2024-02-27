@@ -42,7 +42,7 @@ def run(model: str, camera_id: int, width: int, height: int, num_threads: int,
   start_time = time.time()
 
   # Start capturing video input from the camera
-  cap = cv2.VideoCapture("TSN_test1.mp4")
+  cap = cv2.VideoCapture(camera_id)
   cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
   cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 
@@ -144,7 +144,7 @@ def main():
       '--model',
       help='Path of the object detection model.',
       required=False,
-      default='efficientdet_lite0.tflite')
+      default='detect_metadata.tflite')
   parser.add_argument(
       '--cameraId', help='Id of camera.', required=False, type=int, default=0)
   parser.add_argument(
